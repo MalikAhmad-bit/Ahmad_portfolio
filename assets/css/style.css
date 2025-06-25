@@ -21857,19 +21857,59 @@ body.loaded {
     margin-top: 7px;
   }
 }
-
 .service-card-user-image {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;  /* image right side pe */
+  align-items: center;
   height: 600px;
-  width: 800px;
-
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* center the whole block */
+  padding: 10px;
 }
+
+.service-card-user-image img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Large screens (already included) */
 @media (min-width: 1200px) {
   .service-card-user-image {
     margin-left: 70px;
   }
 }
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .service-card-user-image {
+    justify-content: center; /* center the image */
+    height: auto;
+    max-width: 90%;
+  }
+
+  .service-card-user-image img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .service-card-user-image {
+    flex-direction: column;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .service-card-user-image img {
+    max-width: 100%;
+  }
+}
+
 
 .inner .ft-link li span {
   background: var(--color-primary) !important;
@@ -26750,4 +26790,33 @@ body.tmp-white-version.color-primary-3rd .services-widget.v2 .active-bg {
   --fa-font-solid: normal 900 1em / 1 "Font Awesome 6 Pro";
   --fa-font-light: normal 300 1em / 1 "Font Awesome 6 Pro";
   --fa-font-regular: normal 400 1em / 1 "Font Awesome 6 Pro";
+}
+
+
+.responsive-profile-pic {
+  position: absolute;
+  top: 102%;
+  left: 1050px; /* right side pe rakha */
+  height: 80vh;
+  max-width: 400px;
+  width: auto;
+  transform: translateY(-50%);
+  object-fit: contain;
+  z-index: 1;
+}
+
+
+
+/* Mobile view fix */
+@media (max-width: 900px) {
+  .responsive-profile-pic {
+    position: static;
+    display: block;
+    margin: 20px auto;
+    max-width: 80vw;
+    height: auto;
+    transform: none;
+  }
+
+  
 }
